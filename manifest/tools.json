@@ -1,0 +1,782 @@
+{
+ "schema": 2,
+ "notes": "Catalogo AFIP Portable: strumenti pubblicati su GitHub (o PyPI) che girano da pendrive su Windows. 'runtime': componente di supporto, non compare nel pannello. 'redistribute': false = non incluso nel pacchetto completo pubblicato (il repository non dichiara una licenza): si installa dagli aggiornamenti. Gli strumenti personali stanno in manifest/custom-tools.json.",
+ "categories": [
+  "Acquisizione",
+  "Disco e file system",
+  "Memoria",
+  "LEAPP (Brignoni)",
+  "Mobile",
+  "Log e timeline",
+  "Browser",
+  "Malware e IOC",
+  "Utilità",
+  "Immagini e video",
+  "OSINT"
+ ],
+ "tools": [
+  {
+   "id": "python",
+   "name": "Python portatile (per Volatility 3 e MVT)",
+   "category": "Memoria",
+   "kind": "cli",
+   "availability": "portable",
+   "runtime": true,
+   "license": "PSF-2.0 e licenze dei componenti",
+   "homepage": "https://github.com/astral-sh/python-build-standalone",
+   "description": "Interprete Python per Windows usato da Volatility 3 e MVT (python-build-standalone)",
+   "exe": [
+    "python.exe"
+   ],
+   "fetch": {
+    "github": "astral-sh/python-build-standalone",
+    "assets": [
+     "^cpython-3\\.12\\.[0-9]+\\+[0-9]{8}-x86_64-pc-windows-msvc-install_only\\.tar\\.gz$"
+    ],
+    "unpack": "tar.gz"
+   }
+  },
+  {
+   "id": "winpmem",
+   "name": "WinPmem",
+   "category": "Acquisizione",
+   "kind": "cli",
+   "license": "Apache-2.0",
+   "homepage": "https://github.com/Velocidex/WinPmem",
+   "description": "Acquisizione della RAM di Windows",
+   "exe": [
+    "winpmem_mini_x64*.exe"
+   ],
+   "hint": "winpmem_mini_x64_rc2.exe E:\\memoria.raw",
+   "warning": "Carica un driver kernel: scrivere il dump su un supporto diverso dalla pendrive dei tool.",
+   "fetch": {
+    "github": "Velocidex/WinPmem",
+    "assets": [
+     "^winpmem_mini_x64_rc2\\.exe$"
+    ],
+    "unpack": "copy"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "velociraptor",
+   "name": "Velociraptor",
+   "category": "Acquisizione",
+   "kind": "gui",
+   "license": "AGPL-3.0",
+   "homepage": "https://github.com/Velocidex/velociraptor",
+   "description": "Raccolta e triage di artefatti (KAPE-like): avvia l'interfaccia locale nel browser",
+   "exe": [
+    "velociraptor*.exe"
+   ],
+   "console_exe": [
+    "velociraptor*.exe"
+   ],
+   "args": [
+    "gui"
+   ],
+   "hint": "velociraptor-*.exe artifacts collect Windows.KapeFiles.Targets --args _SANS_Triage=Y --output E:\\triage.zip",
+   "fetch": {
+    "github": "Velocidex/velociraptor",
+    "assets": [
+     "^velociraptor-v[0-9.]+-windows-amd64\\.exe\\.gz$"
+    ],
+    "unpack": "gz"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "sleuthkit",
+   "name": "The Sleuth Kit",
+   "category": "Disco e file system",
+   "kind": "cli",
+   "license": "IPL/CPL/GPL",
+   "homepage": "https://github.com/sleuthkit/sleuthkit",
+   "description": "mmls, fls, icat, istat, tsk_recover",
+   "exe": [
+    "fls.exe"
+   ],
+   "hint": "mmls immagine.E01  |  fls -r -o 2048 immagine.E01",
+   "fetch": {
+    "github": "sleuthkit/sleuthkit",
+    "assets": [
+     "^sleuthkit-[0-9.]+-win32\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "bulk_extractor",
+   "name": "bulk_extractor",
+   "category": "Disco e file system",
+   "kind": "cli",
+   "license": "MIT",
+   "homepage": "https://github.com/simsong/bulk_extractor",
+   "description": "Estrazione di email, URL e altre feature da immagini",
+   "exe": [
+    "bulk_extractor64.exe"
+   ],
+   "hint": "bulk_extractor64.exe -o output immagine.raw",
+   "fetch": {
+    "github": "simsong/bulk_extractor",
+    "assets": [
+     "^bulk_extractor64\\.exe$"
+    ],
+    "unpack": "copy"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "sqlitebrowser",
+   "name": "DB Browser for SQLite",
+   "category": "Disco e file system",
+   "kind": "gui",
+   "license": "GPL-3.0 / MPL-2.0",
+   "homepage": "https://github.com/sqlitebrowser/sqlitebrowser",
+   "description": "Apertura e interrogazione di database SQLite (app, browser, chat)",
+   "exe": [
+    "DB Browser for SQLite.exe"
+   ],
+   "warning": "Aprire sempre copie dei database: l'apertura può modificare i file -wal e -shm.",
+   "fetch": {
+    "github": "sqlitebrowser/sqlitebrowser",
+    "assets": [
+     "^DB\\.Browser\\.for\\.SQLite-v[0-9.]+-win64\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "thumbcacheviewer",
+   "name": "Thumbcache Viewer",
+   "category": "Disco e file system",
+   "kind": "gui",
+   "license": "GPL-3.0",
+   "homepage": "https://github.com/thumbcacheviewer/thumbcacheviewer",
+   "description": "Miniature dei database thumbcache_*.db di Windows",
+   "exe": [
+    "thumbcache_viewer.exe"
+   ],
+   "fetch": {
+    "github": "thumbcacheviewer/thumbcacheviewer",
+    "assets": [
+     "^thumbcache_viewer_64\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "volatility3",
+   "name": "Volatility 3",
+   "category": "Memoria",
+   "kind": "cli",
+   "license": "Volatility Software License",
+   "homepage": "https://github.com/volatilityfoundation/volatility3",
+   "description": "Analisi di dump di memoria",
+   "exe": [
+    "vol.cmd"
+   ],
+   "search_dirs": [
+    "runtime/bin"
+   ],
+   "hint": "vol -f memoria.raw windows.info  |  vol -f memoria.raw windows.pslist",
+   "warning": "Per i dump Windows al primo uso scarica i simboli da Microsoft (serve internet).",
+   "fetch": {
+    "pip": [
+     "volatility3"
+    ]
+   },
+   "availability": "python"
+  },
+  {
+   "id": "memprocfs",
+   "name": "MemProcFS",
+   "category": "Memoria",
+   "kind": "cli",
+   "license": "AGPL-3.0",
+   "homepage": "https://github.com/ufrisk/MemProcFS",
+   "description": "Analisi di dump di memoria come file system",
+   "exe": [
+    "MemProcFS.exe"
+   ],
+   "hint": "MemProcFS.exe -device memoria.raw -forensic 1",
+   "warning": "Per montare il dump come unità serve il driver Dokany installato sul PC.",
+   "fetch": {
+    "github": "ufrisk/MemProcFS",
+    "assets": [
+     "^MemProcFS_files_and_binaries_v[0-9.]+-win_x64-[0-9]+\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "pe-sieve",
+   "name": "PE-sieve",
+   "category": "Memoria",
+   "kind": "cli",
+   "license": "BSD-2-Clause",
+   "homepage": "https://github.com/hasherezade/pe-sieve",
+   "description": "Rileva codice iniettato o modificato in un processo in esecuzione",
+   "exe": [
+    "pe-sieve64.exe"
+   ],
+   "hint": "pe-sieve64.exe /pid 1234 /dir E:\\out",
+   "fetch": {
+    "github": "hasherezade/pe-sieve",
+    "assets": [
+     "^pe-sieve64\\.exe$"
+    ],
+    "unpack": "copy"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "hollows_hunter",
+   "name": "HollowsHunter",
+   "category": "Memoria",
+   "kind": "cli",
+   "license": "BSD-2-Clause",
+   "homepage": "https://github.com/hasherezade/hollows_hunter",
+   "description": "Scansione di tutti i processi in esecuzione alla ricerca di impianti (basato su PE-sieve)",
+   "exe": [
+    "hollows_hunter64.exe"
+   ],
+   "hint": "hollows_hunter64.exe /dir E:\\out",
+   "fetch": {
+    "github": "hasherezade/hollows_hunter",
+    "assets": [
+     "^hollows_hunter64\\.exe$"
+    ],
+    "unpack": "copy"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "aleapp",
+   "name": "ALEAPP",
+   "category": "LEAPP (Brignoni)",
+   "kind": "gui",
+   "license": "MIT",
+   "homepage": "https://github.com/abrignoni/ALEAPP",
+   "description": "Parser di artefatti Android: senza argomenti apre la finestra, con argomenti lavora da riga di comando",
+   "exe": [
+    "aleapp.exe"
+   ],
+   "console_exe": [
+    "aleapp.exe"
+   ],
+   "hint": "aleapp -t fs -i <estrazione> -o <output>",
+   "fetch": {
+    "github": "abrignoni/ALEAPP",
+    "assets": [
+     "^ALEAPP-[0-9.]+-windows-x64-portable\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "ileapp",
+   "name": "iLEAPP",
+   "category": "LEAPP (Brignoni)",
+   "kind": "gui",
+   "license": "MIT",
+   "homepage": "https://github.com/abrignoni/iLEAPP",
+   "description": "Parser di artefatti iOS: senza argomenti apre la finestra, con argomenti lavora da riga di comando",
+   "exe": [
+    "ileapp.exe"
+   ],
+   "console_exe": [
+    "ileapp.exe"
+   ],
+   "hint": "ileapp -t tar -i backup.tar -o <output>",
+   "fetch": {
+    "github": "abrignoni/iLEAPP",
+    "assets": [
+     "^iLEAPP-[0-9.]+-windows-x64-portable\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "rleapp",
+   "name": "RLEAPP",
+   "category": "LEAPP (Brignoni)",
+   "kind": "gui",
+   "license": "MIT",
+   "homepage": "https://github.com/abrignoni/RLEAPP",
+   "description": "Parser dei dati restituiti dai provider (Google, Apple, Meta…): senza argomenti apre la finestra, con argomenti lavora da riga di comando",
+   "exe": [
+    "rleapp.exe"
+   ],
+   "console_exe": [
+    "rleapp.exe"
+   ],
+   "hint": "rleapp -t fs -i <cartella> -o <output>",
+   "fetch": {
+    "github": "abrignoni/RLEAPP",
+    "assets": [
+     "^RLEAPP-[0-9.]+-windows-x64-portable\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "vleapp",
+   "name": "VLEAPP",
+   "category": "LEAPP (Brignoni)",
+   "kind": "gui",
+   "license": "MIT",
+   "homepage": "https://github.com/abrignoni/VLEAPP",
+   "description": "Parser di artefatti dei veicoli: senza argomenti apre la finestra, con argomenti lavora da riga di comando",
+   "exe": [
+    "vleapp.exe"
+   ],
+   "console_exe": [
+    "vleapp.exe"
+   ],
+   "hint": "vleapp -t fs -i <estrazione> -o <output>",
+   "fetch": {
+    "github": "abrignoni/VLEAPP",
+    "assets": [
+     "^VLEAPP-[0-9.]+-windows-x64-portable\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "dleapp",
+   "name": "DLEAPP",
+   "category": "LEAPP (Brignoni)",
+   "kind": "gui",
+   "license": "MIT",
+   "homepage": "https://github.com/abrignoni/DLEAPP",
+   "description": "Parser di artefatti di applicazioni desktop (Electron/Chromium): senza argomenti apre la finestra, con argomenti lavora da riga di comando",
+   "exe": [
+    "dleapp.exe"
+   ],
+   "console_exe": [
+    "dleapp.exe"
+   ],
+   "hint": "dleapp -t fs -i <cartella> -o <output>",
+   "fetch": {
+    "github": "abrignoni/DLEAPP",
+    "assets": [
+     "^DLEAPP-[0-9.]+-windows-x64-portable\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "gleapp",
+   "name": "GLEAPP",
+   "category": "LEAPP (Brignoni)",
+   "kind": "gui",
+   "license": "MIT",
+   "homepage": "https://github.com/abrignoni/GLEAPP",
+   "description": "Triage forense di immagini e video: senza argomenti apre la finestra, con argomenti lavora da riga di comando",
+   "exe": [
+    "gleapp.exe"
+   ],
+   "console_exe": [
+    "gleapp.exe"
+   ],
+   "hint": "gleapp -t fs -i <cartella> -o <output>",
+   "fetch": {
+    "github": "abrignoni/GLEAPP",
+    "assets": [
+     "^GLEAPP-[0-9.]+-windows-x64-portable\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "gleapp-mapdownloader",
+   "name": "GLEAPP MapDownloader",
+   "category": "LEAPP (Brignoni)",
+   "kind": "gui",
+   "license": "MIT",
+   "homepage": "https://github.com/abrignoni/GLEAPP-MapDownloader",
+   "description": "Ritaglia un'area della mappa Protomaps in un file .pmtiles per le mappe offline di GLEAPP",
+   "exe": [
+    "GLEAPP-MapDownloader.exe"
+   ],
+   "fetch": {
+    "github": "abrignoni/GLEAPP-MapDownloader",
+    "assets": [
+     "^GLEAPP-MapDownloader-v[0-9.]+-windows-x64\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "warning": "Scarica le mappe da internet.",
+   "availability": "portable",
+   "console_exe": [
+    "GLEAPP-MapDownloader.exe"
+   ],
+   "hint": "GLEAPP-MapDownloader --list-regions"
+  },
+  {
+   "id": "batch-leapp",
+   "name": "Batch-LEAPP",
+   "category": "LEAPP (Brignoni)",
+   "kind": "gui",
+   "license": "Non dichiarata nel repository",
+   "homepage": "https://github.com/abrignoni/batch-leapp",
+   "description": "Esegue un LEAPP su una cartella di estrazioni, con indice HTML e manifest SHA-256 (finestra; riga di comando dal tasto destro)",
+   "exe": [
+    "Batch LEAPP.exe"
+   ],
+   "fetch": {
+    "github": "abrignoni/batch-leapp",
+    "assets": [
+     "^Batch-LEAPP-windows-x64\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable",
+   "console_exe": [
+    "batch-leapp.exe"
+   ],
+   "hint": "batch-leapp --help",
+   "redistribute": false
+  },
+  {
+   "id": "mvt",
+   "name": "MVT",
+   "category": "Mobile",
+   "kind": "cli",
+   "license": "MVT License 1.1",
+   "homepage": "https://github.com/mvt-project/mvt",
+   "description": "Indicatori di spyware su backup iOS e Android",
+   "exe": [
+    "mvt-ios.cmd"
+   ],
+   "search_dirs": [
+    "runtime/bin"
+   ],
+   "hint": "mvt-ios check-backup --iocs indicatori.stix2 -o out backup\\",
+   "warning": "La licenza MVT pone restrizioni d'uso: leggerla prima dell'impiego.",
+   "fetch": {
+    "pip": [
+     "mvt"
+    ]
+   },
+   "availability": "python"
+  },
+  {
+   "id": "hayabusa",
+   "name": "Hayabusa",
+   "category": "Log e timeline",
+   "kind": "cli",
+   "license": "AGPL-3.0",
+   "homepage": "https://github.com/Yamato-Security/hayabusa",
+   "description": "Timeline e rilevamenti Sigma su registri eventi Windows",
+   "exe": [
+    "hayabusa-*-win-x64.exe",
+    "hayabusa*.exe"
+   ],
+   "hint": "hayabusa csv-timeline -d C:\\Windows\\System32\\winevt\\Logs -o timeline.csv",
+   "fetch": {
+    "github": "Yamato-Security/hayabusa",
+    "assets": [
+     "^hayabusa-[0-9.]+-win-x64\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "takajo",
+   "name": "Takajo",
+   "category": "Log e timeline",
+   "kind": "cli",
+   "license": "AGPL-3.0",
+   "homepage": "https://github.com/Yamato-Security/takajo",
+   "description": "Analisi dei risultati di Hayabusa (riepiloghi, grafi di processi, IOC)",
+   "exe": [
+    "takajo*.exe"
+   ],
+   "hint": "takajo automagic -t timeline.jsonl -o case1",
+   "fetch": {
+    "github": "Yamato-Security/takajo",
+    "assets": [
+     "^takajo-[0-9.]+-win-x64\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "chainsaw",
+   "name": "Chainsaw",
+   "category": "Log e timeline",
+   "kind": "cli",
+   "license": "GPL-3.0",
+   "homepage": "https://github.com/WithSecureOpenSource/chainsaw",
+   "description": "Hunting rapido su EVTX con regole Sigma (regole incluse)",
+   "exe": [
+    "chainsaw*.exe"
+   ],
+   "hint": "chainsaw hunt C:\\Windows\\System32\\winevt\\Logs -s sigma\\ --mapping mappings\\sigma-event-logs-all.yml -r rules\\",
+   "fetch": {
+    "github": "WithSecureOpenSource/chainsaw",
+    "assets": [
+     "^chainsaw_x86_64-pc-windows-msvc\\.zip$",
+     "^chainsaw_all_platforms\\+rules\\.zip$"
+    ],
+    "unpack": "zip",
+    "filters": [
+     "",
+     "^chainsaw/(rules|sigma)/"
+    ]
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "evtx_dump",
+   "name": "evtx_dump",
+   "category": "Log e timeline",
+   "kind": "cli",
+   "license": "MIT",
+   "homepage": "https://github.com/omerbenamram/evtx",
+   "description": "Conversione veloce di file EVTX in JSON o XML",
+   "exe": [
+    "evtx_dump*.exe"
+   ],
+   "hint": "evtx_dump-*.exe -o jsonl Security.evtx > security.jsonl",
+   "fetch": {
+    "github": "omerbenamram/evtx",
+    "assets": [
+     "^evtx_dump-v[0-9.]+\\.exe$"
+    ],
+    "unpack": "copy"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "hindsight",
+   "name": "Hindsight",
+   "category": "Browser",
+   "kind": "gui",
+   "license": "Apache-2.0",
+   "homepage": "https://github.com/RyanDFIR/hindsight",
+   "description": "Cronologia, download, cookie e cache di Chrome/Chromium",
+   "exe": [
+    "hindsight_gui.exe"
+   ],
+   "console_exe": [
+    "hindsight.exe"
+   ],
+   "hint": "hindsight.exe -i \"Profilo\\Default\" -o report",
+   "fetch": {
+    "github": "RyanDFIR/hindsight",
+    "assets": [
+     "^hindsight\\.exe$",
+     "^hindsight_gui\\.exe$"
+    ],
+    "unpack": "copy"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "yara",
+   "name": "YARA",
+   "category": "Malware e IOC",
+   "kind": "cli",
+   "license": "BSD-3-Clause",
+   "homepage": "https://github.com/VirusTotal/yara",
+   "description": "Ricerca di pattern con regole YARA",
+   "exe": [
+    "yara64.exe"
+   ],
+   "hint": "yara64 -r regole.yar C:\\Users",
+   "fetch": {
+    "github": "VirusTotal/yara",
+    "assets": [
+     "^yara-[0-9.]+-[0-9]+-win64\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "yara-x",
+   "name": "YARA-X",
+   "category": "Malware e IOC",
+   "kind": "cli",
+   "license": "BSD-3-Clause",
+   "homepage": "https://github.com/VirusTotal/yara-x",
+   "description": "Nuovo motore YARA in Rust",
+   "exe": [
+    "yr.exe"
+   ],
+   "hint": "yr scan regole.yar C:\\Users",
+   "fetch": {
+    "github": "VirusTotal/yara-x",
+    "assets": [
+     "^yara-x-v[0-9.]+-x86_64-pc-windows-msvc\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "loki",
+   "name": "LOKI 2",
+   "category": "Malware e IOC",
+   "kind": "cli",
+   "license": "GPL-3.0",
+   "homepage": "https://github.com/Neo23x0/Loki-RS",
+   "description": "Scanner di IOC e regole YARA (signature-base)",
+   "exe": [
+    "loki*.exe"
+   ],
+   "hint": "loki.exe --help",
+   "fetch": {
+    "github": "Neo23x0/Loki-RS",
+    "assets": [
+     "^loki-windows-x86_64-v[0-9.]+\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "capa",
+   "name": "capa",
+   "category": "Malware e IOC",
+   "kind": "cli",
+   "license": "Apache-2.0",
+   "homepage": "https://github.com/mandiant/capa",
+   "description": "Capacità di un eseguibile sospetto (ATT&CK)",
+   "exe": [
+    "capa.exe"
+   ],
+   "hint": "capa sospetto.exe",
+   "fetch": {
+    "github": "mandiant/capa",
+    "assets": [
+     "^capa-v[0-9.]+-windows\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "floss",
+   "name": "FLOSS",
+   "category": "Malware e IOC",
+   "kind": "cli",
+   "license": "Apache-2.0",
+   "homepage": "https://github.com/mandiant/flare-floss",
+   "description": "Estrazione di stringhe anche offuscate da eseguibili",
+   "exe": [
+    "floss.exe"
+   ],
+   "hint": "floss sospetto.exe",
+   "fetch": {
+    "github": "mandiant/flare-floss",
+    "assets": [
+     "^floss-v[0-9.]+-windows\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "die",
+   "name": "Detect It Easy",
+   "category": "Malware e IOC",
+   "kind": "gui",
+   "license": "MIT",
+   "homepage": "https://github.com/horsicq/DIE-engine",
+   "description": "Tipo di file, compilatore, packer e protezioni",
+   "exe": [
+    "die.exe"
+   ],
+   "console_exe": [
+    "diec.exe"
+   ],
+   "hint": "diec sospetto.exe",
+   "fetch": {
+    "github": "horsicq/DIE-engine",
+    "assets": [
+     "^die_win64_qt6_[0-9.]+\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "cyberchef",
+   "name": "CyberChef",
+   "category": "Utilità",
+   "kind": "gui",
+   "license": "Apache-2.0",
+   "homepage": "https://github.com/gchq/CyberChef",
+   "description": "Decodifica, conversione e analisi di dati (offline, nel browser)",
+   "exe": [
+    "CyberChef_*.html"
+   ],
+   "fetch": {
+    "github": "gchq/CyberChef",
+    "assets": [
+     "^CyberChef_[0-9a-f]+\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable"
+  },
+  {
+   "id": "forensicvisionpro",
+   "name": "Forensic Vision Pro",
+   "category": "Immagini e video",
+   "kind": "gui",
+   "license": "Non dichiarata nel repository",
+   "homepage": "https://github.com/gaiacalamari/ForensicVisionPro",
+   "description": "Analisi forense di immagini e video: metadati, copy-move, PRNU, steganalisi, report",
+   "exe": [
+    "ForensicVisionPro.exe"
+   ],
+   "fetch": {
+    "github": "gaiacalamari/ForensicVisionPro",
+    "assets": [
+     "^ForensicVisionPro-[0-9.]+-portable\\.zip$"
+    ],
+    "unpack": "zip"
+   },
+   "availability": "portable",
+   "redistribute": false
+  },
+  {
+   "id": "maigret",
+   "name": "Maigret",
+   "category": "OSINT",
+   "kind": "cli",
+   "license": "MIT",
+   "homepage": "https://github.com/soxoj/maigret",
+   "description": "Ricerca di un username su centinaia di siti",
+   "exe": [
+    "maigret_standalone.exe"
+   ],
+   "hint": "maigret_standalone.exe nomeutente --html",
+   "fetch": {
+    "github": "soxoj/maigret",
+    "assets": [
+     "^maigret_standalone\\.exe$"
+    ],
+    "unpack": "copy"
+   },
+   "availability": "portable"
+  }
+ ]
+}
