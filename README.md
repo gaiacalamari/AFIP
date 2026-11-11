@@ -20,7 +20,6 @@ Dalla pagina [**Releases**](https://github.com/TUO-UTENTE/afip-portable/releases
 |---|---|---|
 | `AFIP-Portable-<versione>-completo.zip` | launcher + strumenti già installati e sigillati (~1,4 GB) | uso immediato, anche offline |
 | `AFIP-Portable-<versione>-leggero.zip` | solo launcher e catalogo (pochi MB) | chi preferisce scaricare ogni strumento dalla sua fonte ufficiale |
-| `SHA256SUMS.txt` | impronte dei pacchetti | verifica del download |
 
 Uso: estrarre lo zip su una pendrive (exFAT), aggiungere un’esclusione antivirus per la cartella `tools` sulla propria
 postazione e aprire `AFIP-Portable.exe`. Con il pacchetto leggero, la prima volta: menu ≡ → **Aggiornamenti software** →
