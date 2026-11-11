@@ -4,7 +4,7 @@ Toolkit forense **portatile per Windows**: un pannello verticale flottante che a
 digital forensics e incident response tenuti su una pendrive. Pensato per le attività esterne: niente installazione,
 niente configurazione.
 
-![Release](https://img.shields.io/github/v/release/TUO-UTENTE/afip-portable) ![Licenza](https://img.shields.io/badge/licenza-MIT-blue)
+![Licenza](https://img.shields.io/badge/licenza-MIT-blue)
 
 - **33 strumenti** pubblicati su GitHub, tra cui tutta la famiglia LEAPP di Alexis Brignoni
 - **Aggiornamenti integrati**: controlla le release ufficiali, verifica l’SHA-256 pubblicato da GitHub, installa
@@ -145,11 +145,6 @@ go test ./...
 GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -trimpath -ldflags "-s -w -H=windowsgui" -o AFIP-Portable.exe .
 bash ../build/build_release.sh v0.0.0-test     # pacchetti completi in dist/ (serve Linux con Go, Python 3 e zip)
 ```
-
-### Pubblicare una nuova versione
-
-Creare una Release su GitHub con un tag (es. `v1.3.1`): il workflow `release.yml` compila, scarica e verifica gli
-strumenti, costruisce i due pacchetti e li allega alla release con `SHA256SUMS.txt`.
 
 ## Avvertenze
 
