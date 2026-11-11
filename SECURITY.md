@@ -1,6 +1,6 @@
 # Sicurezza
 
-## Come vengono scelti e verificati gli strumenti
+## Strumenti
 
 - Solo release ufficiali pubblicate dagli autori su GitHub (Volatility 3 e MVT da PyPI). Nessun binario è ricompilato o modificato.
 - Ogni file scaricato è confrontato con l’SHA-256 che GitHub pubblica per la release; se non corrisponde viene scartato.
